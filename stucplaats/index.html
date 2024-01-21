@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Stukadoorsberekeningen</title>
+</head>
+
+<body>
+
+    <header class="header2">
+      <h1>Stukadoors Calculator</h1>  
+    </header>
+
+    <!-- Calculator 1 -->
+    
+    <section>
+    
+    <div id="calculator">
+        <h1 id="project">Bereken hier Project</h1>
+        <hr>
+        <br>
+        <label for="m2-price" id="kleur1">Prijs per m² & Aantal m²</label>
+        <input type="text" id="m2-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+    
+        <label for="m2-quantity"></label>
+        <input type="number"  id="m2-quantity" step="0.01" placeholder="Voer aantal m² in">
+
+        <label for="mp75-m2-per-bag" id="kleur1">Opbrengst m² per zak Gips</label>
+        <input type="number"  id="mp75-m2-per-bag" step="1" placeholder="Voer aantal m² in">
+
+        <label for="house-age" id="kleur1">Leeftijd van het project</label>
+    <select id="house-age">
+      <option value="older-than-2">Ouder dan 2 jaar 9% BTW</option>
+      <option value="younger-than-2">Jonger dan 2 jaar 21% BTW</option>
+    </select>
+    
+        <button id="calculate-btn">Bereken</button>
+    
+        <!-- Resultaatgebieden met initiële tekst -->
+        <div id="result">Totaalbedrag <span class="green-text euro-value">0.00 euro</span></div>
+        <div id="btw-result">BTW bedrag <span class="green-text euro-value">0.00 euro</span></div>
+        <div id="total-including-btw">Totaalbedrag inclusief BTW <span class="green-text euro-value">0.00 euro</span></div>
+        <div id="mp75-bags-result">Aantal benodigde zakken gips <span class='green-text'>0</span></div>
+        <div id="mandays-result">Aantal dagen arbeid nodig <span class="green-text">0</span></div>
+        <p id="tip">(Gebaseerd op 1 man x 25m²)</p>
+
+        <br>
+        <hr>
+    <br>
+    
+
+        <label for="m2-quantity-2" id="kleur1">Aantal m² oppervlakte</label>
+        <input type="number" id="m2-quantity-2" step="1" placeholder="Voer aantal m² in">
+    
+        <button id="calculate-btn-2" onclick="calculateSquareMeters()">Bereken</button>
+    
+        <div id="stucloper-result-2">Aantal rollen stucloper nodig <span class="green-text">0</span></div>
+        <div id="tape-result-2">Aantal rollen tape nodig <span class="green-text">0</span></div>
+        <div class="column">
+            <br>
+            <hr>
+            <h2 id="kladblok">Aantekeningen</h2>
+            <textarea id="notes-column-1" placeholder="Maak hier aantekeningen..."></textarea>
+        </div>
+    </div>
+</div>
+</div>
+    
+     <!-- Calculator 2 -->
+     
+     <div id="calculator-2">
+         <h1 id="arbeid">Bereken hier Arbeid</h1>
+         <hr>
+         <br>
+        <!-- Berekening voor Prijs per Uur en Aantal Uren -->
+        <div class="input-group">
+            <label for="hourly-price" id="kleur1">Prijs per Uur & Aantal Uur</label>
+            <div class="input-wrapper">
+                <input type="text" id="hourly-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+            </div>
+        </div>
+    
+        <div class="input-group">
+            <label for="hours"></label>
+            <div class="input-wrapper">
+                <input type="number" id="hours" placeholder="Voer aantal uur in">
+            </div>
+        </div>
+    
+        <label for="project-age-hours" id="kleur1">Leeftijd van het project:</label>
+        <select id="project-age-hours">
+            <option value="older-than-2">Ouder dan 2 jaar 9% BTW</option>
+            <option value="younger-than-2">Jonger dan 2 jaar 21% BTW</option>
+        </select>
+    
+        <button id="calculate-hours" onclick="calculateHours()">Bereken</button>
+    
+        <div class="result" id="total-result-hours">Totaal Bedrag: <span class="green-text">€ 0.00</span></div>
+        <div class="result" id="vat-result-hours">BTW Bedrag: <span class="green-text">€ 0.00</span></div>
+        <div class="result" id="total-including-vat-hours">Totaal Bedrag Inclusief BTW: <span class="green-text">€ 0.00</span></div>
+        <!-- Einde berekening voor Prijs per Uur en Aantal Uren -->
+        <br>
+        <hr>
+        <br>
+        
+    
+        <!-- Berekening voor Prijs per Dag en Aantal Dagen -->
+        <div class="input-group">
+            <label for="daily-price" id="kleur1">Prijs per Dag & Aantal Dagen:</label>
+            <div class="input-wrapper">
+                <input type="text" id="daily-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+            </div>
+        </div>
+    
+        <div class="input-group">
+            <label for="days"></label>
+            <div class="input-wrapper">
+                <input type="number" id="days" placeholder="Voer aantal dagen in">
+            </div>
+        </div>
+    
+        <label for="project-age-days" id="kleur1">Leeftijd van het project:</label>
+        <select id="project-age-days">
+            <option value="older-than-2">Ouder dan 2 jaar 9% BTW</option>
+            <option value="younger-than-2">Jonger dan 2 jaar 21 % BTW</option>
+        </select>
+    
+        <button id="calculate-days" onclick="calculateDays()">Bereken</button>
+    
+        <div class="result" id="total-result-days">Totaal Bedrag: <span class="green-text">€ 0.00</span></div>
+        <div class="result" id="vat-result-days">BTW Bedrag: <span class="green-text">€ 0.00</span></div>
+        <div class="result" id="total-including-vat-days">Totaal Bedrag Inclusief BTW: <span class="green-text">€ 0.00</span></div>
+        <!-- Einde berekening voor Prijs per Dag en Aantal Dagen -->
+    
+        <br>
+        <hr>
+
+        <h2 id="kladblok">Aantekeningen</h2>
+        <textarea id="notes-column-1" placeholder="Maak hier aantekeningen..."></textarea>
+
+    </div>
+    
+    
+   <!-- Calculator 3 -->
+   
+   <div class="calculator" id="calculator-3">
+    <h1 id="mat3">Bereken hier Materialen</h1>
+    <hr>
+    <br> 
+
+    <p id="kleur1">Zak Gips of Cement</p>
+    <label for="mp75-price"></label>
+    <div class="input-wrapper">
+        <input type="text" id="mp75-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+    </div>
+
+    <label for="mp75-quantity"></label>
+    <input type="number" id="mp75-quantity" placeholder="Voer aantal in">
+
+    <p id="kleur1">Zak Quik</p>
+    <label for="quik-price"></label>
+    <div class="input-wrapper">
+        <input type="text" id="quik-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+    </div>
+
+    
+    <label for="quik-quantity"></label>
+    <input type="number" id="quik-quantity" placeholder="Voer aantal in">
+
+
+    <p id="kleur1">Zak afpleister</p>
+    <label for="rifino-price"></label>
+    <div class="input-wrapper">
+        <input type="text" id="rifino-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+    <label for="rifino-quantity"></label>
+    <input type="number" id="rifino-quantity" placeholder="Voer aantal in">
+
+    <p id="kleur1">Hoekspeer 3mm</p>
+    <label for="hoekspeer-3mm-price"></label>
+    <input type="text" id="hoekspeer-3mm-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+    <label for="hoekspeer-3mm-quantity"></label>
+    <input type="number" id="hoekspeer-3mm-quantity" placeholder="Voer aantal in">
+
+    <p id="kleur1">Hoekspeer 6mm</p>
+    <label for="hoekspeer-6mm-price"></label>
+    <input type="text" id="hoekspeer-6mm-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+    <label for="hoekspeer-6mm-quantity"></label>
+    <input type="number" id="hoekspeer-6mm-quantity" placeholder="Voer aantal in">
+
+    <p id="kleur1">Stucstop 3mm</p>
+    <label for="stucstop-3mm-price"></label>
+    <input type="text" id="stucstop-3mm-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+    <label for="stucstop-3mm-quantity"></label>
+    <input type="number" id="stucstop-3mm-quantity" placeholder="Voer aantal in">
+
+    <p id="kleur1">Stucstop 6mm:</p>
+    <label for="stucstop-6mm-price"></label>
+    <input type="text" id="stucstop-6mm-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+    <label for="stucstop-6mm-quantity"></label>
+    <input type="number" id="stucstop-6mm-quantity" placeholder="Voer aantal in">
+
+    <p id="kleur1">Rol Gaasband</p>
+    <label for="gaasband-price"></label>
+    <input type="text" id="gaasband-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+  <label for="gaasband-quantity"></label>
+  <input type="number" id="gaasband-quantity" placeholder="Voer aantal in">
+
+  <p id="kleur1">Rol Gitex</p>
+  <label for="gitex-price"></label>
+  <input type="text" id="gitex-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+  <label for="gitex-quantity"></label>
+  <input type="number" id="gitex-quantity" placeholder="Voer aantal in">
+
+  <p id="kleur1">Rol Stucloper</p>
+  <label for="stucloper-price"></label>
+  <input type="text" id="stucloper-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+  <label for="stucloper-quantity"></label>
+  <input type="number" id="stucloper-quantity" placeholder="Voer aantal in">
+
+  <p id="kleur1">Rol Plastic</p>
+  <label for="plastic-price"></label>
+  <input type="text" id="plastic-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+  <label for="plastic-quantity"></label>
+  <input type="number" id="plastic-quantity" placeholder="Voer aantal in">
+
+  <p id="kleur1">Rol Tape</p>
+  <label for="tape-price"></label>
+  <input type="text" id="tape-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+  <label for="tape-quantity"></label>
+  <input type="number" id="tape-quantity" placeholder="Voer aantal in">
+
+  <p id="kleur1">Emmer Voorstrijk</p>
+  <label for="voorstrijk-price"></label>
+  <input type="text" id="voorstrijk-price" step="0.01" placeholder="Voer prijs in" onfocus="addEuroSymbol(this)" onblur="removeEuroSymbol(this)">
+
+  <label for="voorstrijk-quantity"></label>
+  <input type="number" id="voorstrijk-quantity" placeholder="Voer aantal in">
+
+  <button id="calculate-btn-3">Bereken</button>
+
+  <!-- Resultaatgebieden met initiële tekst -->
+  <div id="result-3">Totaalbedrag stucmaterialen: <span class="green-text euro-value">0.00 euro</span></div>
+</div>
+</div>
+    </section>
+
+    <footer id="foot1">
+        <p>&copy; 2024 by Sylvain | www.stucplaats.nl</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+
+function addEuroSymbol(input) {
+                input.value = '€ ' + input.value;
+            }
+        
+            function removeEuroSymbol(input) {
+                input.value = input.value.replace('€ ', '');
+            }
+        
+            function calculateHours() {
+        var hourlyPrice = parseFloat($("#hourly-price").val().replace('€ ', '')) || 0;
+        var hoursPerDay = parseInt($("#hours").val()) || 0;
+        var projectAge = $("#project-age-hours").val();
+
+        var totalHours = hourlyPrice * hoursPerDay;
+        var vatRate = (projectAge === "older-than-2") ? 0.09 : 0.21; // 9% bij ouder dan 2 jaar, anders 21%
+        var vatAmount = totalHours * vatRate;
+        var totalIncludingVat = totalHours + vatAmount;
+
+        $("#total-result-hours").html('Totaal Bedrag: <span class="green-text">€ ' + totalHours.toFixed(2) + '</span>');
+        $("#vat-result-hours").html('BTW Bedrag: <span class="green-text">€ ' + vatAmount.toFixed(2) + '</span>');
+        $("#total-including-vat-hours").html('Totaal Bedrag Inclusief BTW: <span class="green-text">€ ' + totalIncludingVat.toFixed(2) + '</span>');
+    }
+
+    function calculateDays() {
+        var dailyPrice = parseFloat($("#daily-price").val().replace('€ ', '')) || 0;
+        var days = parseInt($("#days").val()) || 0;
+        var projectAge = $("#project-age-days").val();
+
+        var totalDays = dailyPrice * days;
+        var vatRate = (projectAge === "older-than-2") ? 0.09 : 0.21; // 9% bij ouder dan 2 jaar, anders 21%
+        var vatAmount = totalDays * vatRate;
+        var totalIncludingVat = totalDays + vatAmount;
+
+        $("#total-result-days").html('Totaal Bedrag Dag: <span class="green-text">€ ' + totalDays.toFixed(2) + '</span>');
+        $("#vat-result-days").html('BTW Bedrag Dag: <span class="green-text">€ ' + vatAmount.toFixed(2) + '</span>');
+        $("#total-including-vat-days").html('Totaal Bedrag Inclusief BTW Dag: <span class="green-text">€ ' + totalIncludingVat.toFixed(2) + '</span>');
+    
+    }
+        
+            function calculateSquareMeters
+            () {
+                
+                var m2Quantity = parseInt(document.getElementById('m2-quantity-2').value) || 0;
+        
+                var stucloperQuantity = Math.ceil(m2Quantity / 20);
+                var tapeQuantity = Math.ceil(m2Quantity / 50);
+        
+                document.getElementById('stucloper-result-2').innerHTML = 'Aantal rollen stucloper nodig: <span class="green-text">' + stucloperQuantity + '</span>';
+                document.getElementById('tape-result-2').innerHTML = 'Aantal rollen tape nodig: <span class="green-text">' + tapeQuantity + '</span>';
+            }
+        
+            </script>
+
+</body>
+</html>
+
+       

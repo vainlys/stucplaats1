@@ -1,0 +1,427 @@
+@media only screen and (max-width: 600px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(0, 0, 0)
+    
+}
+
+section {
+display: flex;
+justify-content: space-between;
+gap: 20px;
+padding: 20px;
+background-color: rgb(0, 0, 0);
+font-size: 15px;
+font-weight: bold;
+text-align: left;
+}
+
+.header2 {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+#calculator {
+max-width: 400px;
+margin: 0 auto;
+padding: 20px;
+border: 3px solid #000000;
+border-radius: 8px;
+background-color: #183955;
+box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+#kleur1 {
+    color: rgb(152, 152, 152);
+}
+
+#kladblok {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    
+}
+#m2-quantity-2 {
+    background-color: rgb(36, 48, 83);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+#project {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.red-text {
+    color: red;
+}
+
+.euro-value::before {
+    content: "€";
+}
+
+.euro-input::before {
+    content: "€";
+    padding-right: 5px;
+}
+
+label, input, button {
+display: block;
+margin-bottom: 10px;
+margin-top: 10px;
+
+}
+
+#tip {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+button {
+background-color: #4CAF50;
+color: white;
+padding: 10px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+;
+border: 1px solid #000000;
+
+}
+
+button:hover {
+background-color: #00ff0d;
+}
+ #mandays-result,  #mp75-bags-result {   
+color: rgb(255, 255, 255);
+font-size: 15px;
+font-weight: bold;
+text-align: center;
+background-color: rgb(36, 48, 83);
+margin-top: 15px;
+padding: 15px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+border: 1px solid #ccc;
+}
+
+
+
+#result,  #total-including-btw {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(10, 70, 1);
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+#btw-result {
+    background-color: rgb(166, 39, 39);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+    
+}
+
+#m2-price, #m2-quantity, #mp75-m2-per-bag, #house-age {
+    background-color: rgb(36, 48, 83);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+
+textarea {
+    width: 100%;
+    height: 350px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #000000;
+   
+}
+
+
+
+#calculator-2 {
+max-width: 400px;
+margin: 0 auto;
+padding: 15px;
+border: 3px solid #000000;
+border-radius: 8px;
+box-shadow: 0 0 10px rgb(255, 255, 255);
+background-color: #183955;
+}
+
+#hourly-price, #hours, #project-age-hours {
+    background-color: rgb(36, 48, 83);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+#daily-price{
+    background-color: rgb(36, 48, 83);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    border: 1px solid #ccc;
+
+}
+
+#days {
+    background-color: rgb(36, 48, 83);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+
+}
+
+#arbeid {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+
+/* Specifieke stijl voor de tekst vóór de dubbele punt (zwart) */
+#result::before,
+#mp75-result::before,
+#mandays-result::before {
+color: green
+}
+
+/* Voeg een stijl toe voor de groene tekst na de dubbele punt */
+.green-text {
+color: green
+}
+
+#stucloper-result-2 {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(36, 48, 83);
+    margin-top: 5px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+.green-text {
+    color: rgb(31, 254, 31);
+}
+
+#tape-result-2 {
+color: rgb(255, 255, 255);
+margin-top: 5px;
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+background-color: rgb(36, 48, 83);
+text-align: center;
+
+}
+
+#calculator-2 label, #calculator-2 input, #calculator-2 button {
+display: block; 
+margin-bottom: 10px;
+margin-top: 10px;
+}
+
+#project-age-days {
+    background-color: rgb(36, 48, 83);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+}
+
+#total-result-days, #total-including-vat-days {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(10, 70, 1);
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+#total-result-hours, #total-including-vat-hours {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(10, 70, 1);
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+#vat-result-hours {
+    background-color: rgb(166, 39, 39);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+
+#vat-result-days {
+    background-color: rgb(166, 39, 39);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.953);
+    border: 1px solid #ccc;
+}
+#calculator-3 {
+max-width: 400px;
+margin: 0 auto;
+padding: 15px;
+border: 3px solid #000000;
+border-radius: 8px;
+box-shadow: 0 0 10px rgb(255, 255, 255);
+background-color: #183955;
+}
+
+#mp75-price, #mp75-quantity, #mp75-m2-per-bag-2, #quik-price, #quik-quantity, #rifino-price, #rifino-quantity, #hoekspeer-3mm-price, #hoekspeer-3mm-quantity,#hoekspeer-6mm-price, #hoekspeer-6mm-quantity, #stucstop-3mm-price, #stucstop-3mm-quantity, #stucstop-6mm-price, #stucstop-6mm-quantity, #gaasband-price, #gaasband-quantity, #gitex-price, #gitex-quantity, #stucloper-price, #stucloper-quantity, #plastic-price, #plastic-quantity, #tape-price, #tape-quantity, #voorstrijk-price, #voorstrijk-quantity {
+    background-color: rgb(36, 48, 83);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(253, 253, 253, 0.953);
+    border: 1px solid #ccc;
+
+}
+#result-3 {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: rgb(36, 48, 83);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+
+#calculator-3 label, #calculator-3 input, #calculator-3 button, #result-3 {
+display: block;
+margin-bottom: 10px;
+margin-top: 10px;
+
+
+}
+
+#calculator-3 button {
+background-color: #4CAF50;
+color: white;
+padding: 10px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+;
+border: 1px solid #000000;
+}
+
+#calculator-3 button:hover {
+background-color: #00ff0d;
+}
+
+#calculator-3 label {
+color: rgb(0, 0, 0);
+font-size: 15px;
+font-weight: bold;
+text-align: left;
+}
+
+#calculator-3 input {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 8px;
+box-sizing: border-box;
+}
+
+#mat3 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+#foot1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
